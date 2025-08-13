@@ -5,6 +5,7 @@ import { crearCuentaSchema } from '../schemas/pedido.schema';
 
 const router = Router();
 
+// POST /api/pedidos/cuentas
 router.post('/cuentas', (req, res, next) => {
   const parse = crearCuentaSchema.safeParse(req.body);
   if (!parse.success) {

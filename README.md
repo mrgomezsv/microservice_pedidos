@@ -1,6 +1,6 @@
 ## Microservicio de Pedidos (Express + TypeScript)
 
-Microservicio para recibir pedidos desde una aplicación móvil. Expone un endpoint para crear cuentas/pedidos y documentación Swagger.
+Microservicio para recibir pedidos desde PUERTOMARISCOAPP móvil. Expone un endpoint para crear cuentas/pedidos y documentación Swagger.
 
 ### Requisitos
 - Node.js 18+ recomendado
@@ -18,13 +18,13 @@ npm install
 
 ### Variables de entorno
 - `PORT` (opcional): puerto del servidor. Por defecto `3000`.
-- `SERVICE_NAME` (opcional): nombre del servicio. Por defecto `micro-pedidos`.
+- `SERVICE_NAME` (opcional): nombre del servicio. Por defecto `puertomarisco-pedidos`.
 - `LOG_LEVEL` (opcional): `debug` | `info` | `warn` | `error`. Por defecto `debug` en dev, `info` en prod.
 
 Crea un archivo `.env` en la raíz si deseas configurarlas:
 ```env
 PORT=3000
-SERVICE_NAME=micro-pedidos
+SERVICE_NAME=puertomarisco-pedidos
 LOG_LEVEL=debug
 ```
 

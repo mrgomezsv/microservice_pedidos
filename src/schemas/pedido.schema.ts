@@ -17,7 +17,7 @@ const abonoSchema = z.object({
 });
 
 export const crearCuentaSchema = z.object({
-  mctrstNumero: z.union([z.string(), z.number()]).optional().transform(v => (v === undefined ? undefined : String(v))),
+  mctrstNumero: z.number().int().optional(),
   arerstCodigo: z.union([z.string(), z.number()]).transform(String),
   msorstCodigo: z.union([z.string(), z.number()]).transform(String),
   cliNumero: z.union([z.string(), z.number()]).transform(String),
@@ -27,7 +27,12 @@ export const crearCuentaSchema = z.object({
   mctrstDireccionEntregaPedido: z.string().optional(),
   mctrstTelefonoEntregaPedido: z.string().regex(/^\d{8}$/).optional(),
   mctrstInstruccionesEntregaPedido: z.string().optional(),
-  mctrstCanalDeContacto: z.enum(['0','1','2']).transform(v => Number(v) as 0|1|2).optional().default(0),
+  mctrstCanalDeContacto: z
+    .number()
+    .int()
+    .refine(v => v === 0 || v === 1 || v === 2, { message: 'Debe ser 0, 1 o 2' })
+    .optional()
+    .default(0 as 0 | 1 | 2),
   mctrstEsPedidoCallCenter: z.boolean().optional().default(false),
   mctrstNoAplicarDescuentoEnPropina: z.boolean().optional().default(false),
   tdvnCodigo: z.union([z.string(), z.number()]).transform(String),
